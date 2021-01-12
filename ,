@@ -1,0 +1,4 @@
+1. Create a prompt for the user to input the password criteria with a min of 8 characters and max of 128.
+2. Options for Y/N character type - numbers, letters, and special characters.
+3. Press the button, generate a random mix of characters in their inputted length as a password. 
+4. Password would be displayed
