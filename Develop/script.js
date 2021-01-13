@@ -8,10 +8,9 @@ var generateBtn = document.querySelector("#generate");
 
 var numberList = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
 var letterList = ["a", "b", "c" , "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
-// var upperCaseList = ["A","B","C","D","E","F","G", "H", "I", "J", "K", "L", "M", "N", "O"
-var letterUpperList = letterList.upperCase();
-console.log(upperCaseList);
+var upperCaseList = ["A","B","C","D","E","F","G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"];
 var specialList = [",", "!", "?", "@", "*", "#", "/", "&"];
+var finalList = [];
 
 
 function getPasswordOptions() {
@@ -20,32 +19,42 @@ function getPasswordOptions() {
   );
   var numberChar = confirm("Do you want number characters?");
   var letterChar = confirm("Do you want lowercase letter characters?");
-  ver capitalChar = confirm("Do you want capital letters?");
+  var upperCaseChar = confirm("Do you want capital letters?");
   var specialChar = confirm("Do you want special characters?");
 
-  if (numberChar !== true && letterChar !== true && specialChar !== true) {
+  if (numberChar !== true && letterChar !== true && upperCaseChar !== true && specialChar !== true) {
     alert("You must select one");
   }
-//if/else statements??
 
-  var passwordFinal = {
-      numberList: numberChar,
-      letterList: letterChar,
-      specialList: specialChar
-      capitalChar : 
-  };
+  if(numberChar === true) {
+    var finalList = [numberList];
+  }
+  if(numberChar === true && letterChar === true) {
+    var finalList = [numberList + letterList];
+  }
+  if (numberChar === true && letterChar  === true && upperCaseChar === true) {
+    var finalList = [numberList + letterList + upperCaseList];
+  }
+  if (numberChar === true && letterChar === true && upperCaseChar === true && specialChar === true) {
+    var finalList = [numberList + letterList + upperCaseList + specialList];
+  }
 }
 
-// function randomizer() {
-//   for (i=0; i < characterAmount.length; i++) {
-//     var characterPick = passwordFinal[Math.floor(Math.random() * characterAmount.length)
-//     ];
-//   }
-// }
+function randomizer() {
+  for (i=0; i < characterAmount.length; i++) {
+    var characterPick = passwordFinal[Math.floor(Math.random() * characterAmount.length);
+      
+    ];
+  }
+}
 
 getPasswordOptions();
 
-function generatePassword() {}
+// function generatePassword() {
+//   if (numberChar === true && letterChar === true && upperCaseChar === true && specialChar === true) {
+//     var passwordOptions = numberList + letterList + specialList + upperCaseList;
+//   }
+// }
 
 //Function will generate
 function writePassword() {
