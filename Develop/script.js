@@ -65,32 +65,14 @@ var upperCaseList = [
 ];
 var specialList = [",", "!", "?", "@", "*", "#", "/", "&"];
 var finalList = [];
-var finalPassword = "";
-
 
 function getPasswordOptions() {
-
-  var characterAmount = prompt(
-    "How many characters would you like in your password? (Min: 8 Max: 128)?"
-  );
 
   var numberChar = confirm("Do you want number characters?");
   var letterChar = confirm("Do you want lowercase letter characters?");
   var upperCaseChar = confirm("Do you want capital letters?");
   var specialChar = confirm("Do you want special characters?");
-}
 
-
-
-function randomizer() {
-  for (i = 0; i < characterAmount; i++) {
-    var characterPick = finalList[Math.floor(Math.random() * characterAmount)];
-    console.log(characterPick);
-  }
-}
-
-
-function generatePassword() {
   if (
     numberChar !== true &&
     letterChar !== true &&
@@ -117,10 +99,18 @@ function generatePassword() {
   ) {
     var finalList = [numberList + letterList + upperCaseList + specialList];
   }
-}
+};
 
+
+function generatePassword() {
+  for (i = 0; i < characterAmount; i++) {
+    var characterPick = finalList[Math.floor(Math.random() * characterAmount)];
+    console.log(characterPick);
+  }
+};
+
+getPasswordOptions();
 generatePassword();
-randomizer();
 
 
 //Function will generate
@@ -133,3 +123,23 @@ function writePassword() {
 
 // Add event listener to generate button
 generateBtn.addEventListener("click", writePassword);
+
+
+
+
+
+function passwordRandomizer() {
+  for (var i = 0; i < characterAmount; i++) {
+    generatedPassword = '';
+    characterPick += finalList.charAt(Math.floor(Math.random() * finalList.length));
+    generatedPassword.push(characterPick);
+    console.log("generated password:", generatedPassword);
+    finalPassword = generatedPassword.join();
+    // var finalPassword = generatedPassword.toString();
+    console.log("final password :", finalPassword);
+
+    finalPassword += finalList.charAt(Math.floor(Math.random() * finalList.length));
+    return finalPassword;
+    console.log("finalpassword?", finalPassword);
+  };
+};
