@@ -6,6 +6,17 @@ var generateBtn = document.querySelector("#generate");
 //Prompt for the number of characters
 //Password options Y/N for numbers, special characters, and letters
 
+//Function will generate
+function writePassword() {
+  var password = passwordRandomizer();
+  var passwordText = document.querySelector("#password");
+
+  passwordText.value = finalPassword;
+}
+
+// Add event listener to generate button
+generateBtn.addEventListener("click", writePassword);
+
 var numberList = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
 var letterList = [
   "a",
@@ -67,6 +78,7 @@ var upperCaseList = [
 var specialList = [",", "!", "?", "@", "*", "#", "/", "&"];
 var finalList;
 var characterAmount;
+var finalStringList;
 
 
 
@@ -158,33 +170,30 @@ function generatePassword() {
   } else if (specialChar === true) {
     finalList = specialList;
   }
-  console.log("final character set: ", finalList);
-}
+  finalStringList = finalList.toString();
+  console.log(finalStringList);
 
-var generatedPassword;
-var characterPick;
+
+
+};
+
 var finalPassword;
-var finalStringList = finalList.toString();
+var finalPullList;
+// var finalStringList = finalList.toString();
 
-console.log(finalStringList);
-function passwordRandomizer() {
+// console.log(finalStringList);
+
+function passwordRandomizer() {;
   for (var i = 0; i < characterAmount; i++) {
+    finalPullList = finalStringList.replace(/,/g, ""); 
+    console.log(finalPullList);
+    finalPassword += finalPullList[Math.floor(Math.random() * finalStringList.length)];
+    console.log(finalPassword);
+    return finalPassword;
+};
+};
 
-};
-};
 
 generatePassword();
-// passwordRandomizer();
-
-//Function will generate
-function writePassword() {
-  var password = passwordRandomizer();
-  var passwordText = document.querySelector("#password");
-
-  passwordText.value = finalPassword;
-}
-
-// Add event listener to generate button
-generateBtn.addEventListener("click", writePassword);
-
+passwordRandomizer();
 writePassword();
